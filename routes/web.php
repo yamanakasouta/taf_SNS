@@ -2,26 +2,31 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/',function(){
+    return redirect('/login');
+});
 
-
-Route::get('/dashboard', function () {
+Route::middleware(['auth','verified'])->group(function(){
+  Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+  })->name('dashboard');
+  
+});
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'index')->name('index');
-    Route::post('/posts', 'store')->name('store');
-    Route::get('/posts/create', 'create')->name('create');
-    Route::get('/posts/{post}', 'show')->name('show');
-    Route::put('/posts/{post}', 'update')->name('update');
-    Route::delete('/posts/{post}', 'delete')->name('delete');
-    Route::get('/posts/{post}/edit', 'edit')->name('edit');
+    Route::get('/posts/{id}/detail','detail')->name('posts.detail');//練習メニュー詳細
+    Route::get('/posts', 'profile')->name('profile');
+    Route::get('/practice', 'practice')->name('practice');//練習メニュー一覧
+    Route::get('/posts/create','create')->name('posts.create');//メニュー登録
+    Route::post('/posts/store','store')->name('posts.store');//メニュー登録処理
+    Route::get('/posts/practice', 'practice')->name('posts.practice');
+    Route::get('/posts/{id}/edit','edit')->name('posts.edit');//練習メニュー編集
+    Route::post('/posts/{id}/delete','delete')->name('posts.delete');//削除処理
+    
 });
-
-Route::get('/categories/{category}', [CategoryController::class,'index'])->middleware("auth");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

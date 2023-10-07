@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Practice extends Model
 {
     use HasFactory;
-
-    public function getPaginateByLimit(int $limit_count = 10)
-    {}
 }
