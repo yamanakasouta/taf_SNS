@@ -12,20 +12,20 @@
                     <a class="text-sky-500" href="{{$practices['practice_edit_url']}}">編集</a>
                     <div class="bg-white border shadow-sm rounded-xl p-4 mb-3">
                         <h3 class="text-lg font-bold text-gray-800">
-                            {{ $practice['practice_day'] }}
+                            {{ $practices['practice_day'] }}
                         </h3>
                         <p class="mt-1 text-xs font-medium text-gray-500">
-                            {{ $practice['practice_temperature'] }}
+                            {{ $practices['practice_temperature'] }}
                         </p>
                         <p class="mt-1 text-xs font-medium text-gray-500">
-                            {{ $practice['practice_humidity'] }}
+                            {{ $practices['practice_humidity'] }}
                         </p>
                         <p class="mt-2 text-gray-800">
-                            {{ $practice['practice_memo'] }}
+                            {{ $practices['practice_memo'] }}
                         </p>
                     </div>
                 </div>
-                <form class="p-1 text-right" action="{{$practice['practice_delete_url'] }}" method="post">
+                <form class="p-1 text-right" action="{{$practices['practice_delete_url'] }}" method="post">
                     @csrf
                     <button class="bg-red-700 hover:bg-red-600 text-white rounded px-4 py-2">削除</button>
                 </form>

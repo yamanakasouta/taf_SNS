@@ -36,21 +36,23 @@ class PostController extends Controller
             'practices' => $practices,
             ])->with(['posts' => $post->getPaginateByLimit(10)]);
     }
-        public function detail(Practice $id){
-            $practices = [
-                'practice_day' => $id->practice_day,  // 練習日
-                'practice_temperature' => $id->practice_temperature,  // 気温
-                'practice_humidity' => $id->practice_humidity,  // 湿度
-                'practice_menu' => $id->practice_menu,  // 練習メニュー
-                'practice_memo' => $id->practice_memo,  // メモ
-                'practice_detail_url' => route('posts.detail',['id' =>$id->id]),//練習メニュー詳細
-                'parctice_edit_url' => route('posts.edit',['id' =>$id->id]),//練習メニュー編集URL
-                'practice_delete_url' => route('posts.delete', ['id' => $id->id]), //削除
-                
-                ];
+    public function detail(Practice $id){
+        $practices = [
+            'practice_day' => $id->practice_day,  // 練習日
+            'practice_temperature' => $id->practice_temperature,  // 気温
+            'practice_humidity' => $id->practice_humidity,  // 湿度
+            'practice_menu' => $id->practice_menu,  // 練習メニュー
+            'practice_memo' => $id->practice_memo,  // メモ
+            'practice_detail_url' => route('posts.detail',['id' =>$id->id]),//練習メニュー詳細
+            'practice_edit_url' => route('posts.edit',['id' =>$id->id]),//練習メニュー編集URL
+            'practice_delete_url' => route('posts.delete', ['id' => $id->id]), //削除
+            
+            
+        ];
+        
         return view('posts.detail',[
             'practices' => $practices,
-            ]);
+        ]);
     }
     
     public function create(Post $post)
