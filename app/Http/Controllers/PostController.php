@@ -30,6 +30,8 @@ class PostController extends Controller
                 'practice_memo' => $db_practice->practice_memo,  // メモ
                 'practice_detail_url' => route('posts.detail', ['id' => $db_practice->id]),  // 練習メニュー詳細URL
                 'practice_edit_url' => route('posts.edit', ['id' => $db_practice->id]),  // 練習メニュー編集URL
+                'practice_delete_url' => route('posts.delete', ['id' => $db_practice->id]),  // 削除
+
                 ];
             }
         return view('posts.practice',[
@@ -83,6 +85,15 @@ class PostController extends Controller
         return view('posts.edit',[
             'practices' => $id,
         ]);
+    }
+    /**
+ 　　* 削除処理
+　　 */
+    public function delete(Request $req, Practice $id){
+         // 保存
+        $id->delete();
+
+        return redirect(route('posts.practice'));
     }
 }
 ?>
