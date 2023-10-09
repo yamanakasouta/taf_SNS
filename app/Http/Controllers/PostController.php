@@ -65,19 +65,19 @@ class PostController extends Controller
     public function store(Request $req,Post $id = null){
         
         if(is_null($id)){
-            $practice = new Post();
+            $practices = new Post();
         }else{
-            $practice = $id;
+            $practices = $id;
         }
-        $practice = new Practice();
+        $practices = new Practice();
         
-        $practice->practice_day = $req->input('practice_day');
-        $practice->practice_temperature = $req->input('practice_temperature');
-        $practice->practice_humidity = $req->input('practice_humidity');
-        $practice->practice_menu = $req->input('practice_menu');
-        $practice->practice_memo = $req->input('practice_memo');
+        $practices->practice_day = $req->input('practice_day');
+        $practices->practice_temperature = $req->input('practice_temperature');
+        $practices->practice_humidity = $req->input('practice_humidity');
+        $practices->practice_menu = $req->input('practice_menu');
+        $practices->practice_memo = $req->input('practice_memo');
         
-        $practice->save();
+        $practices->save();
         
         return redirect(route('posts.practice'));
     }
