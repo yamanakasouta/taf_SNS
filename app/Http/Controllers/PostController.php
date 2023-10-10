@@ -62,15 +62,14 @@ class PostController extends Controller
         return view('posts.create');
     }
     //登録処理//
-    public function store(Request $req,Post $id = null){
+    public function store(Request $req,Practice $id = null){
         
         if(is_null($id)){
-            $practices = new Post();
+            $practices = new Practice();
         }else{
             $practices = $id;
         }
-        $practices = new Practice();
-        
+
         $practices->practice_day = $req->input('practice_day');
         $practices->practice_temperature = $req->input('practice_temperature');
         $practices->practice_humidity = $req->input('practice_humidity');
