@@ -57,4 +57,19 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    
+    public function store(Request $request)
+    {
+        // フォームデータをバリデーションすることが推奨されます
+        $request->validate([
+            'bio' => 'required|string',
+        ]);
+
+        // プロフィール情報を保存
+        $user = auth()->user(); // ログインユーザーを取得
+        $user->bio = $request->input('bio');
+        $user->save();
+
+        return redirect()->route('profile.index')->with('success', 'プロフィールが更新されました');
+    }
 }

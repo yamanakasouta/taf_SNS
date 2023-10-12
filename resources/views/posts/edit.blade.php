@@ -18,16 +18,21 @@
                                     <label class="block text-gray-700 text-sm font-bold mb-1" for="practice_day">
                                         日付
                                     </label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="practice_day" name="practice_day" type="date" placeholder="" required>
+                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                        id="practice_day" name="practice_day" type="date" placeholder="" required
+                                        value="{{$practices->practice_day}}"
+                                    >
                                </div>
                             </div>
-                            
                             <div class="mb-4 flex items-center">
                                 <div class="mr-2">
                                     <label class="block text-gray-700 text-sm font-bold mb-1" for="practice_temperature">
                                         気温
                                     </label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="practice_temperature" name="practice_temperature" type="text" placeholder="気温" required>
+                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    id="practice_temperature" name="practice_temperature" type="text" placeholder="気温" required
+                                    value="{{$practices->practice_temperature}}"
+                                >
                                </div>
                             </div>
 
@@ -36,7 +41,10 @@
                                     <label class="block text-gray-700 text-sm font-bold mb-1" for="practice_humidity">
                                         湿度
                                     </label>
-                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="practice_humidity" name="practice_humidity" type="text" placeholder="湿度" required>
+                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                    id="practice_humidity" name="practice_humidity" type="text" placeholder="湿度" required
+                                    value="{{$practices->practice_humidity}}"
+                                >
                                </div>
                             </div>
 
@@ -45,7 +53,9 @@
                                     <label class="block text-gray-700 text-sm font-bold mb-1"for="practice_menu">
                                         練習メニュー
                                     </label>
-                                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="practice_menu" name="practice_menu" type="text" placeholder="" required></textarea>
+                                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                        id="practice_menu" name="practice_menu" type="text" placeholder="" required
+                                    >{{$practices->practice_menu}}</textarea>
                                 </div>
                             </div>
                             
@@ -55,7 +65,9 @@
                                     <label class="block text-gray-700 text-sm font-bold mb-1"for="practice_memo">
                                         メモ
                                     </label>
-                                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="practice_memo" name="practice_memo" type="text" placeholder=""></textarea>
+                                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                                        id="practice_memo" name="practice_memo" type="text" placeholder=""
+                                    >{{$practices->practice_memo}}</textarea>
                                 </div>
                             </div>
                             

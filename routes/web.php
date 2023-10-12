@@ -34,4 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/image_test', [ImageTestController::class, 'index'])->name('image_test');
+Route::post('/image_test', [ImageTestController::class, 'imagePost'])->name('image_test_post');
+
 require __DIR__.'/auth.php';

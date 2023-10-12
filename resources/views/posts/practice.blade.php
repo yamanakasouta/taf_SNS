@@ -19,25 +19,9 @@
         <h3 class="mt-1 font-medium text-gray-800">
             {{ $I_practice['practice_day']}}
         </h3>
-        <p class="mt-1 text-xs font-medium text-gray-800">
-            {{ $I_practice['practice_temperature']}}
-        </p>
-        <p class="mt-1 text-xs font-medium text-gray-800">
-            {{ $I_practice['practice_humidity']}}
-        </p>
-        <div class="bg-white border shadow-sm rounded-xl p-4 mb-1">
-        <p class="mt-2 text-sky-800" href="{{ $I_practice['practice_menu']}}">
-            メニュー
-        </p>
-        </div>
-        <div class="bg-white border shadow-sm rounded-xl p-4">
-        <p class="mt-3 text-orange-800" href="{{ $I_practice['practice_memo']}}">
-            メモ
-        </p>
-        </div>
         <div class="flex mt-3">
             <a class="text-sky-500 mr-3" href="{{ $I_practice['practice_detail_url'] }}">
-                編集
+                詳細
             </a>
         </div>
     </div>

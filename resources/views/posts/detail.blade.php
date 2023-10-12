@@ -20,9 +20,22 @@
                         <p class="mt-1 text-xs font-medium text-gray-500">
                             {{ $practices['practice_humidity'] }}
                         </p>
-                        <p class="mt-2 text-gray-800">
-                            {{ $practices['practice_memo'] }}
-                        </p>
+                        <div class="bg-white border shadow-sm rounded-xl p-4 mb-1">
+                        <div class="text">
+                            メニュー
+                        </div>
+                            <p class="mt-3 text-sky-800 ">
+                                {!!nl2br(e($practices['practice_menu'])) !!}
+                            </p>
+                        </div>
+                        <div class="bg-white border shadow-sm rounded-xl p-4 mb-1">
+                            <div class="text">
+                                メモ
+                            </div>
+                                <p class="mt-2 text-sky-800">
+                                    {!!nl2br(e($practices['practice_memo'])) !!}
+                                </p>
+                        </div>
                     </div>
                 </div>
                 <form class="p-1 text-right" action="{{$practices['practice_delete_url'] }}" method="post">
