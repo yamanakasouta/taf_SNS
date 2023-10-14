@@ -11,7 +11,7 @@ class ImageTestController extends Controller
      * 画面表示
      */
     public function index(){
-        return view('image_test');
+        return view('posts.profile');
     }
 
     /**
@@ -20,7 +20,7 @@ class ImageTestController extends Controller
     public function imagePost(Request $req){
         $file = $req->file('img');
         $file_path = $file->store('public');
-        Session::put('img_path', $file_path);
+        Session::put('img_path', str_replace('public', 'storage', $file_path));
         return redirect()->route('image_test');
     }
 }
