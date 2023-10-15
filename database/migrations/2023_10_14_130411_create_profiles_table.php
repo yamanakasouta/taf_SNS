@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-         Schema::create('profile', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->id();
+            $table->text('profile_bio')->nullable()->comment('自己紹介');
+            $table->text('profile_kiroku')->nullable()->comment('個人記録');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profile');
+        Schema::dropIfExists('profiles');
     }
 };

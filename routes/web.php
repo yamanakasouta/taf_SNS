@@ -26,7 +26,10 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/practice', 'practice')->name('posts.practice');
     Route::get('/posts/{id}/edit','edit')->name('posts.edit');//練習メニュー編集
     Route::post('/posts/{id}/delete','delete')->name('posts.delete');//削除処理
-    
+
+    Route::get('/posts/register','register')->name('posts.register');
+    Route::get('/posts/profile','profile')->name('posts.profile');
+    Route::post('/posts/update','update')->name('posts.update'); 
 });
 
 Route::middleware('auth')->group(function () {

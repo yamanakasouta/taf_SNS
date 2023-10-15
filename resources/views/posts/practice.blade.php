@@ -14,18 +14,18 @@
                         練習メニュー登録
                     </a>
                     
-@foreach($practices as $I_practice)
-    <div class="bg-white border shadow-sm rounded-xl p-4 mb-3">
-        <h3 class="mt-1 font-medium text-gray-800">
-            {{ $I_practice['practice_day']}}
-        </h3>
-        <div class="flex mt-3">
-            <a class="text-sky-500 mr-3" href="{{ $I_practice['practice_detail_url'] }}">
-                詳細
-            </a>
+    @foreach($practices as $I_practice)
+        <div class="bg-white border shadow-sm rounded-xl p-4 mb-3">
+            <h3 class="mt-1 font-medium text-gray-800">
+                {{ $I_practice['practice_day']}}
+            </h3>
+            <div class="flex mt-3">
+                <a class="text-sky-500 mr-3" href="{{ $I_practice['practice_detail_url'] }}">
+                    詳細
+                </a>
+            </div>
         </div>
-    </div>
-@endforeach
+    @endforeach
         
 
                     </div>

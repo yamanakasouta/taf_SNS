@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Practice;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,14 +13,10 @@ class PostController extends Controller
     {
         return view('posts.index')->with(['posts' => $post->getPaginateByLimit(10)]);
     }
-    public function profile(Post $post)
-    {
-        return view('posts.profile')->with(['posts' => $post->getPaginateByLimit(10)]);
-    }
     public function practice(Post $post)
     {
-        $db_practices = Practice::get();
-        
+        $db_practices = Practice::orderBy('practice_day','asc')->get();
+
         $practice = [];
         foreach($db_practices as $db_practice){
             $practices[] = [
@@ -63,7 +60,7 @@ class PostController extends Controller
     }
     //登録処理//
     public function store(Request $req,Practice $id = null){
-        
+
         if(is_null($id)){
             $practices = new Practice();
         }else{
@@ -93,6 +90,45 @@ class PostController extends Controller
         $id->delete();
 
         return redirect(route('posts.practice'));
+    }
+
+    public function profile(Post $post)
+    {
+        $db_profiles = Post::get();
+        
+        $profile = [];
+        foreach($db_profiles as $db_profile){
+            $profiles[] = [
+                'profile_bio' => $db_profiles->profile_bio, // 
+                'profile_kiroku' => $db_profiles->profile_kiroku,  // 
+                'profile_update_url' => route('posts.update', ['id' => $db_profiles->id]),  // 
+                ];
+        }
+        return view('posts.profile',[
+            'profiles' => $profiles,
+            ])->with(['posts' => $post->getPaginateByLimit(10)]);
+    }
+    
+    public function register(Prodile $id)
+    {
+        return view('posts.register',[
+            'pofiles' => $id,
+        ]);
+    }
+    public function update(Request $req,Profile $id = null){
+        
+        if(is_null($id)){
+            $profiles = new Profile();
+        }else{
+            $profiles = $id;
+        }
+
+        $profiles->profile_bio = $req->input('profile_bio');
+        $profiles->profile_kiroku = $req->input('profile_kiroku');
+
+        $profiles->save();
+        
+        return redirect(route('posts.profile'));
     }
 }
 ?>
